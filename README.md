@@ -1,11 +1,10 @@
-<p align="center"><b>NEW: <a href="https://github.com/dylanaraps/pure-sh-bible">pure sh bible (📖 A collection of pure POSIX sh alternatives to external processes).</a></b></p>
+<!-- <p align="center"><b>NEW: <a href="https://github.com/dylanaraps/pure-sh-bible">pure sh bible (📖 A collection of pure POSIX sh alternatives to external processes).</a></b></p> -->
 
 <br>
 
-<p align="center"><img src="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/512x512.png" width="200px"></p>
-<h1 align="center">pure bash bible</h1> <p
-align="center">A collection of pure bash alternatives to external
-processes.</p>
+<!-- <p align="center"><img src="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/512x512.png" width="200px"></p> -->
+<h1 align="center">纯粹bash圣经</h1> <p
+align="center">一组纯bash脚本替代第三方进程.</p>
 
 <p align="center"> <a
 href="https://travis-ci.com/dylanaraps/pure-bash-bible"><img
@@ -20,149 +19,149 @@ src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 <img src="https://s3.amazonaws.com/titlepages.leanpub.com/bash/hero" width="40%" align="right">
 </a>
 
-The goal of this book is to document commonly-known and lesser-known methods of doing various tasks using only built-in `bash` features. Using the snippets from this bible can help remove unneeded dependencies from scripts and in most cases make them faster. I came across these tips and discovered a few while developing [neofetch](https://github.com/dylanaraps/neofetch), [pxltrm](https://github.com/dylanaraps/pxltrm) and other smaller projects.
+本书的目的是记录仅使用内置的`bash`功能来执行各种任务的常用方法和鲜为人知的方法。 使用此圣经中的代码片段可以帮助从脚本中删除不需要的依赖项，并且在大多数情况下，可以使它们更快。 我遇到了这些技巧，并在开发 [neofetch](https://github.com/dylanaraps/neofetch), [pxltrm](https://github.com/dylanaraps/pxltrm) 和其他较小的项目时发现了一些技巧。
 
-The snippets below are linted using `shellcheck` and tests have been written where applicable. Want to contribute? Read the [CONTRIBUTING.md](https://github.com/dylanaraps/pure-bash-bible/blob/master/CONTRIBUTING.md). It outlines how the unit tests work and what is required when adding snippets to the bible.
+下面的代码片段使用`shellcheck`进行了整理，并在适用的地方编写了测试。 想要贡献代码？ 请阅读文档 [CONTRIBUTING.md](https://github.com/dylanaraps/pure-bash-bible/blob/master/CONTRIBUTING.md). 它概述了单元测试的工作方式以及向圣经中添加摘要的要求。
 
-See something incorrectly described, buggy or outright wrong? Open an issue or send a pull request. If the bible is missing something, open an issue and a solution will be found.
+看到描述不正确的描述、bug或完全错误的东西吗？ 打开一个issue或发送一个PR。 如果圣经缺少一些内容，请打开一个issue，然后将找到解决方案。
 
 <br>
-<p align="center"><b>This book is also available to purchase on leanpub. https://leanpub.com/bash</b></p>
-<p align="center"><b>Or you can buy me a coffee.</b>
+<p align="center"><b>这本书也可以在leanpub上购买。 https://leanpub.com/bash</b></p>
+<p align="center"><b>或者你可以请我喝杯咖啡！</b>
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V7QNJNKS3WYVS"><img src="https://img.shields.io/badge/don-paypal-yellow.svg"></a> <a href="https://www.patreon.com/dyla"><img src="https://img.shields.io/badge/don-patreon-yellow.svg"> </a><a href="https://liberapay.com/2211/"><img src="https://img.shields.io/badge/don-liberapay-yellow.svg"></a>
 </p>
 
 <br>
 
-# Table of Contents
+# 目录
 
 <!-- vim-markdown-toc GFM -->
 
-* [FOREWORD](#foreword)
-* [STRINGS](#strings)
-    * [Trim leading and trailing white-space from string](#trim-leading-and-trailing-white-space-from-string)
-    * [Trim all white-space from string and truncate spaces](#trim-all-white-space-from-string-and-truncate-spaces)
-    * [Use regex on a string](#use-regex-on-a-string)
-    * [Split a string on a delimiter](#split-a-string-on-a-delimiter)
-    * [Change a string to lowercase](#change-a-string-to-lowercase)
-    * [Change a string to uppercase](#change-a-string-to-uppercase)
-    * [Reverse a string case](#reverse-a-string-case)
-    * [Trim quotes from a string](#trim-quotes-from-a-string)
-    * [Strip all instances of pattern from string](#strip-all-instances-of-pattern-from-string)
-    * [Strip first occurrence of pattern from string](#strip-first-occurrence-of-pattern-from-string)
-    * [Strip pattern from start of string](#strip-pattern-from-start-of-string)
-    * [Strip pattern from end of string](#strip-pattern-from-end-of-string)
-    * [Percent-encode a string](#percent-encode-a-string)
-    * [Decode a percent-encoded string](#decode-a-percent-encoded-string)
-    * [Check if string contains a sub-string](#check-if-string-contains-a-sub-string)
-    * [Check if string starts with sub-string](#check-if-string-starts-with-sub-string)
-    * [Check if string ends with sub-string](#check-if-string-ends-with-sub-string)
-* [ARRAYS](#arrays)
-    * [Reverse an array](#reverse-an-array)
-    * [Remove duplicate array elements](#remove-duplicate-array-elements)
-    * [Random array element](#random-array-element)
-    * [Cycle through an array](#cycle-through-an-array)
-    * [Toggle between two values](#toggle-between-two-values)
-* [LOOPS](#loops)
-    * [Loop over a range of numbers](#loop-over-a-range-of-numbers)
-    * [Loop over a variable range of numbers](#loop-over-a-variable-range-of-numbers)
-    * [Loop over an array](#loop-over-an-array)
-    * [Loop over an array with an index](#loop-over-an-array-with-an-index)
-    * [Loop over the contents of a file](#loop-over-the-contents-of-a-file)
-    * [Loop over files and directories](#loop-over-files-and-directories)
-* [FILE HANDLING](#file-handling)
-    * [Read a file to a string](#read-a-file-to-a-string)
-    * [Read a file to an array (*by line*)](#read-a-file-to-an-array-by-line)
-    * [Get the first N lines of a file](#get-the-first-n-lines-of-a-file)
-    * [Get the last N lines of a file](#get-the-last-n-lines-of-a-file)
-    * [Get the number of lines in a file](#get-the-number-of-lines-in-a-file)
-    * [Count files or directories in directory](#count-files-or-directories-in-directory)
-    * [Create an empty file](#create-an-empty-file)
-    * [Extract lines between two markers](#extract-lines-between-two-markers)
-* [FILE PATHS](#file-paths)
-    * [Get the directory name of a file path](#get-the-directory-name-of-a-file-path)
-    * [Get the base-name of a file path](#get-the-base-name-of-a-file-path)
-* [VARIABLES](#variables)
-    * [Assign and access a variable using a variable](#assign-and-access-a-variable-using-a-variable)
-    * [Name a variable based on another variable](#name-a-variable-based-on-another-variable)
-* [ESCAPE SEQUENCES](#escape-sequences)
-    * [Text Colors](#text-colors)
-    * [Text Attributes](#text-attributes)
-    * [Cursor Movement](#cursor-movement)
-    * [Erasing Text](#erasing-text)
-* [PARAMETER EXPANSION](#parameter-expansion)
-    * [Indirection](#indirection)
-    * [Replacement](#replacement)
-    * [Length](#length)
-    * [Expansion](#expansion)
-    * [Case Modification](#case-modification)
-    * [Default Value](#default-value)
-* [BRACE EXPANSION](#brace-expansion)
-    * [Ranges](#ranges)
-    * [String Lists](#string-lists)
-* [CONDITIONAL EXPRESSIONS](#conditional-expressions)
-    * [File Conditionals](#file-conditionals)
-    * [File Comparisons](#file-comparisons)
-    * [Variable Conditionals](#variable-conditionals)
-    * [Variable Comparisons](#variable-comparisons)
-* [ARITHMETIC OPERATORS](#arithmetic-operators)
-    * [Assignment](#assignment)
-    * [Arithmetic](#arithmetic)
-    * [Bitwise](#bitwise)
-    * [Logical](#logical)
-    * [Miscellaneous](#miscellaneous)
-* [ARITHMETIC](#arithmetic-1)
-    * [Simpler syntax to set variables](#simpler-syntax-to-set-variables)
-    * [Ternary Tests](#ternary-tests)
-* [TRAPS](#traps)
-    * [Do something on script exit](#do-something-on-script-exit)
-    * [Ignore terminal interrupt (CTRL+C, SIGINT)](#ignore-terminal-interrupt-ctrlc-sigint)
-    * [React to window resize](#react-to-window-resize)
-    * [Do something before every command](#do-something-before-every-command)
-    * [Do something when a shell function or a sourced file finishes executing](#do-something-when-a-shell-function-or-a-sourced-file-finishes-executing)
-* [PERFORMANCE](#performance)
-    * [Disable Unicode](#disable-unicode)
-* [OBSOLETE SYNTAX](#obsolete-syntax)
-    * [Shebang](#shebang)
-    * [Command Substitution](#command-substitution)
-    * [Function Declaration](#function-declaration)
-* [INTERNAL VARIABLES](#internal-variables)
-    * [Get the location to the `bash` binary](#get-the-location-to-the-bash-binary)
-    * [Get the version of the current running `bash` process](#get-the-version-of-the-current-running-bash-process)
-    * [Open the user's preferred text editor](#open-the-users-preferred-text-editor)
-    * [Get the name of the current function](#get-the-name-of-the-current-function)
-    * [Get the host-name of the system](#get-the-host-name-of-the-system)
-    * [Get the architecture of the Operating System](#get-the-architecture-of-the-operating-system)
-    * [Get the name of the Operating System / Kernel](#get-the-name-of-the-operating-system--kernel)
-    * [Get the current working directory](#get-the-current-working-directory)
-    * [Get the number of seconds the script has been running](#get-the-number-of-seconds-the-script-has-been-running)
-    * [Get a pseudorandom integer](#get-a-pseudorandom-integer)
-* [INFORMATION ABOUT THE TERMINAL](#information-about-the-terminal)
-    * [Get the terminal size in lines and columns (*from a script*)](#get-the-terminal-size-in-lines-and-columns-from-a-script)
-    * [Get the terminal size in pixels](#get-the-terminal-size-in-pixels)
-    * [Get the current cursor position](#get-the-current-cursor-position)
-* [CONVERSION](#conversion)
-    * [Convert a hex color to RGB](#convert-a-hex-color-to-rgb)
-    * [Convert an RGB color to hex](#convert-an-rgb-color-to-hex)
-* [CODE GOLF](#code-golf)
-    * [Shorter `for` loop syntax](#shorter-for-loop-syntax)
-    * [Shorter infinite loops](#shorter-infinite-loops)
-    * [Shorter function declaration](#shorter-function-declaration)
-    * [Shorter `if` syntax](#shorter-if-syntax)
-    * [Simpler `case` statement to set variable](#simpler-case-statement-to-set-variable)
-* [OTHER](#other)
-    * [Use `read` as an alternative to the `sleep` command](#use-read-as-an-alternative-to-the-sleep-command)
-    * [Check if a program is in the user's PATH](#check-if-a-program-is-in-the-users-path)
-    * [Get the current date using `strftime`](#get-the-current-date-using-strftime)
-    * [Get the username of the current user](#get-the-username-of-the-current-user)
-    * [Generate a UUID V4](#generate-a-uuid-v4)
-    * [Progress bars](#progress-bars)
-    * [Get the list of functions in a script](#get-the-list-of-functions-in-a-script)
-    * [Bypass shell aliases](#bypass-shell-aliases)
-    * [Bypass shell functions](#bypass-shell-functions)
-    * [Run a command in the background](#run-a-command-in-the-background)
-    * [Capture function return without command substitution](#capture-the-return-value-of-a-function-without-command-substitution)
-* [AFTERWORD](#afterword)
+* [前言](#foreword)
+* [字符串](#strings)
+    * [修剪字符串的前置和后置空格](#trim-leading-and-trailing-white-space-from-string)
+    * [修剪字符串中的所有空白并截断空格](#trim-all-white-space-from-string-and-truncate-spaces)
+    * [在字符串上使用正则表达式](#use-regex-on-a-string)
+    * [指定分隔符分离字符串](#split-a-string-on-a-delimiter)
+    * [将字符串变更为小写](#change-a-string-to-lowercase)
+    * [将字符串变更为大写](#change-a-string-to-uppercase)
+    * [反转字符串大小写](#reverse-a-string-case)
+    * [修剪字符串中的引号](#trim-quotes-from-a-string)
+    * [从字符串中剥离模式的所有实例](#strip-all-instances-of-pattern-from-string)
+    * [从字符串中删除模式的首次出现](#strip-first-occurrence-of-pattern-from-string)
+    * [从字符串的开头剥离pattern](#strip-pattern-from-start-of-string)
+    * [从字符串的结尾剥离pattern](#strip-pattern-from-end-of-string)
+    * [对字符串进行百分号编码](#percent-encode-a-string)
+    * [对百分号编码的字符串进行解码](#decode-a-percent-encoded-string)
+    * [检查字符串是否包含子字符串](#check-if-string-contains-a-sub-string)
+    * [检查字符串是否以子字符串开头](#check-if-string-starts-with-sub-string)
+    * [检查字符串是否以子字符串结尾](#check-if-string-ends-with-sub-string)
+* [数组](#arrays)
+    * [反转数组](#reverse-an-array)
+    * [删除重复的数组元素](#remove-duplicate-array-elements)
+    * [随机数组元素](#random-array-element)
+    * [遍历数组](#cycle-through-an-array)
+    * [在两个值之间切换](#toggle-between-two-values)
+* [循环](#loops)
+    * [循环显示一系列数字](#loop-over-a-range-of-numbers)
+    * [循环遍历可变范围的数字](#loop-over-a-variable-range-of-numbers)
+    * [遍历数组](#loop-over-an-array)
+    * [用索引循环遍历数组](#loop-over-an-array-with-an-index)
+    * [循环遍历文件的内容](#loop-over-the-contents-of-a-file)
+    * [循环遍历文件和目录](#loop-over-files-and-directories)
+* [文件处理](#file-handling)
+    * [将文件读取为字符串](#read-a-file-to-a-string)
+    * [将文件读取到数组（*按行*）](#read-a-file-to-an-array-by-line)
+    * [获取文件的前N行](#get-the-first-n-lines-of-a-file)
+    * [获取文件的最后N行](#get-the-last-n-lines-of-a-file)
+    * [获取文件中的行数](#get-the-number-of-lines-in-a-file)
+    * [计算目录中的文件或目录](#count-files-or-directories-in-directory)
+    * [创建一个空文件](#create-an-empty-file)
+    * [提取两个标记之间的行](#extract-lines-between-two-markers)
+* [文件路径](#file-paths)
+    * [获取文件路径的目录名称](#get-the-directory-name-of-a-file-path)
+    * [获取文件路径的基本名称](#get-the-base-name-of-a-file-path)
+* [变量](#variables)
+    * [使用一个变量分配和调用另外一个变量](#assign-and-access-a-variable-using-a-variable)
+    * [根据一个变量命名另一个变量](#name-a-variable-based-on-another-variable)
+* [转义序列](#escape-sequences)
+    * [文字颜色](#text-colors)
+    * [文字属性](#text-attributes)
+    * [光标移动](#cursor-movement)
+    * [删除文字](#erasing-text)
+* [参数扩展](#parameter-expansion)
+    * [间接](#indirection)
+    * [替换](#replacement)
+    * [长度](#length)
+    * [扩展](#expansion)
+    * [大小写修改](#case-modification)
+    * [默认值](#default-value)
+* [标点符号分隔符扩展](#brace-expansion)
+    * [范围](#ranges)
+    * [字符串列表](#string-lists)
+* [操作符表达式](#conditional-expressions)
+    * [文件表达式](#file-conditionals)
+    * [文件比较](#file-comparisons)
+    * [变量表达式](#variable-conditionals)
+    * [变量对比](#variable-comparisons)
+* [算术运算符](#arithmetic-operators)
+    * [赋值](#assignment)
+    * [运算](#arithmetic)
+    * [位移](#bitwise)
+    * [逻辑](#logical)
+    * [杂项](#miscellaneous)
+* [运算符](#arithmetic-1)
+    * [简化设置变量语法](#simpler-syntax-to-set-variables)
+    * [三元测试](#ternary-tests)
+* [陷阱](#traps)
+    * [在脚本退出时执行一些操作](#do-something-on-script-exit)
+    * [忽略终端中断 (CTRL+C, SIGINT)](#ignore-terminal-interrupt-ctrlc-sigint)
+    * [对窗口调整大小做出回应](#react-to-window-resize)
+    * [在执行每个命令之前执行一些操作](#do-something-before-every-command)
+    * [当Shell函数或源文件执行完成时执行一些操作](#do-something-when-a-shell-function-or-a-sourced-file-finishes-executing)
+* [性能](#performance)
+    * [禁用Unicode](#disable-unicode)
+* [过时的语法](#obsolete-syntax)
+    * [bash路径](#shebang)
+    * [命令替换](#command-substitution)
+    * [函数声明](#function-declaration)
+* [内部变量](#internal-variables)
+    * [获取`bash`二进制文件的位置](#get-the-location-to-the-bash-binary)
+    * [获取当前正在运行的bash进程的版本](#get-the-version-of-the-current-running-bash-process)
+    * [打开用户的首选文本编辑器](#open-the-users-preferred-text-editor)
+    * [获取当前函数的名称](#get-the-name-of-the-current-function)
+    * [获取系统的主机名](#get-the-host-name-of-the-system)
+    * [获取操作系统的体系结构](#get-the-architecture-of-the-operating-system)
+    * [获取操作系统/内核的名称](#get-the-name-of-the-operating-system--kernel)
+    * [获取当前工作目录](#get-the-current-working-directory)
+    * [获取脚本已运行的秒数](#get-the-number-of-seconds-the-script-has-been-running)
+    * [获取一个伪随机整数](#get-a-pseudorandom-integer)
+* [有关终端的信息](#information-about-the-terminal)
+    * [获取终端的行和列大小（*来自脚本*）](#get-the-terminal-size-in-lines-and-columns-from-a-script)
+    * [获取终端尺寸（以像素为单位）](#get-the-terminal-size-in-pixels)
+    * [获取当前光标位置](#get-the-current-cursor-position)
+* [颜色转换](#conversion)
+    * [将十六进制颜色转换为RGB](#convert-a-hex-color-to-rgb)
+    * [将RGB颜色转换为十六进制](#convert-an-rgb-color-to-hex)
+* [代码奇技淫巧](#code-golf)
+    * [较短的`for`循环语法](#shorter-for-loop-syntax)
+    * [较短的无限循环](#shorter-infinite-loops)
+    * [较短的函数声明](#shorter-function-declaration)
+    * [较短的`if`语法](#shorter-if-syntax)
+    * [简单的`case`语句来设置变量](#simpler-case-statement-to-set-variable)
+* [其他](#other)
+    * [使用`read`代替`sleep`命令](#use-read-as-an-alternative-to-the-sleep-command)
+    * [检查程序是否在用户的PATH中](#check-if-a-program-is-in-the-users-path)
+    * [使用`strftime`获取当前日期](#get-the-current-date-using-strftime)
+    * [获取当前用户的用户名](#get-the-username-of-the-current-user)
+    * [生成UUID V4](#generate-a-uuid-v4)
+    * [进度条](#progress-bars)
+    * [获取脚本中的函数列表](#get-the-list-of-functions-in-a-script)
+    * [绕过shell别名](#bypass-shell-aliases)
+    * [绕过shell函数](#bypass-shell-functions)
+    * [在后台运行命令](#run-a-command-in-the-background)
+    * [捕获函数返回而无需命令替换](#capture-the-return-value-of-a-function-without-command-substitution)
+* [后记](#afterword)
 
 <!-- vim-markdown-toc -->
 
@@ -171,11 +170,11 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
 <!-- CHAPTER START -->
 # FOREWORD
 
-A collection of pure `bash` alternatives to external processes and programs. The `bash` scripting language is more powerful than people realise and most tasks can be accomplished without depending on external programs.
+外部进程和程序的纯`bash`替代品的集合。 `bash`脚本语言比人们意识到的功能更强大，并且大多数任务可以在不依赖外部程序的情况下完成。
 
-Calling an external process in `bash` is expensive and excessive use will cause a noticeable slowdown. Scripts and programs written using built-in methods (*where applicable*) will be faster, require fewer dependencies and afford a better understanding of the language itself.
+在`bash`中调用一个外部进程是很昂贵的，过度使用将导致明显的减速。 使用内置方法（*如果适用*）编写的脚本和程序将更快，需要更少的依赖关系并且可以更好地理解语言本身。
 
-The contents of this book provide a reference for solving problems encountered when writing programs and scripts in `bash`. Examples are in function formats showcasing how to incorporate these solutions into code.
+本书的内容为解决用bash编写程序和脚本时遇到的问题提供了参考。 函数格式中的示例展示了如何将这些解决方案合并到代码中。
 
 <!-- CHAPTER END -->
 
