@@ -6,18 +6,18 @@
 <h1 align="center">纯粹bash圣经</h1> <p
 align="center">一组纯bash脚本替代第三方进程.</p>
 
-<p align="center"> <a
+<!-- <p align="center"> <a
 href="https://travis-ci.com/dylanaraps/pure-bash-bible"><img
 src="https://travis-ci.com/dylanaraps/pure-bash-bible.svg?branch=master"></a>
 <a href="./LICENSE.md"><img
 src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-</p>
+</p> -->
 
 <br>
 
-<a href="https://leanpub.com/bash/">
+<!-- <a href="https://leanpub.com/bash/">
 <img src="https://s3.amazonaws.com/titlepages.leanpub.com/bash/hero" width="40%" align="right">
-</a>
+</a> -->
 
 本书的目的是记录仅使用内置的`bash`功能来执行各种任务的常用方法和鲜为人知的方法。 使用此圣经中的代码片段可以帮助从脚本中删除不需要的依赖项，并且在大多数情况下，可以使它们更快。 我遇到了这些技巧，并在开发 [neofetch](https://github.com/dylanaraps/neofetch), [pxltrm](https://github.com/dylanaraps/pxltrm) 和其他较小的项目时发现了一些技巧。
 
@@ -25,13 +25,13 @@ src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 
 看到描述不正确的描述、bug或完全错误的东西吗？ 打开一个issue或发送一个PR。 如果圣经缺少一些内容，请打开一个issue，然后将找到解决方案。
 
-<br>
+<!-- <br>
 <p align="center"><b>这本书也可以在leanpub上购买。 https://leanpub.com/bash</b></p>
 <p align="center"><b>或者你可以请我喝杯咖啡！</b>
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V7QNJNKS3WYVS"><img src="https://img.shields.io/badge/don-paypal-yellow.svg"></a> <a href="https://www.patreon.com/dyla"><img src="https://img.shields.io/badge/don-patreon-yellow.svg"> </a><a href="https://liberapay.com/2211/"><img src="https://img.shields.io/badge/don-liberapay-yellow.svg"></a>
 </p>
 
-<br>
+<br> -->
 
 # 目录
 
