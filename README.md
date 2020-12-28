@@ -2,16 +2,16 @@
 
 <br>
 
-<!-- <p align="center"><img src="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/512x512.png" width="200px"></p> -->
+<p align="center"><img src="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/512x512.png" width="200px"></p>
 <h1 align="center">纯粹bash圣经</h1> <p
 align="center">一组纯bash脚本替代第三方进程.</p>
 
-<!-- <p align="center"> <a
+<p align="center"> <a
 href="https://travis-ci.com/dylanaraps/pure-bash-bible"><img
 src="https://travis-ci.com/dylanaraps/pure-bash-bible.svg?branch=master"></a>
 <a href="./LICENSE.md"><img
 src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-</p> -->
+</p>
 
 <br>
 
