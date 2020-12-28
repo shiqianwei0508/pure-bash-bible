@@ -21,7 +21,7 @@ src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 
 本书的目的是记录仅使用内置的`bash`功能来执行各种任务的常用方法和鲜为人知的方法。 使用此圣经中的代码片段可以帮助从脚本中删除不需要的依赖项，并且在大多数情况下，可以使它们更快。 我遇到了这些技巧，并在开发 [neofetch](https://github.com/dylanaraps/neofetch), [pxltrm](https://github.com/dylanaraps/pxltrm) 和其他较小的项目时发现了一些技巧。
 
-下面的代码片段使用`shellcheck`进行了整理，并在适用的地方编写了测试。 想要贡献代码？ 请阅读文档 [CONTRIBUTING.md](https://github.com/dylanaraps/pure-bash-bible/blob/master/CONTRIBUTING.md). 它概述了单元测试的工作方式以及向圣经中添加摘要的要求。
+下面的代码片段使用`shellcheck`进行了整理，并在适用的地方编写了测试。 想要贡献代码？ 请阅读文档 [CONTRIBUTING.md](https://github.com/shiqianwei0508/pure-bash-bible/blob/master/CONTRIBUTING.md). 它概述了单元测试的工作方式以及向圣经中添加摘要的要求。
 
 看到描述不正确的描述、bug或完全错误的东西吗？ 打开一个issue或发送一个PR。 如果圣经缺少一些内容，请打开一个issue，然后将找到解决方案。
 
